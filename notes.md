@@ -34,3 +34,14 @@ return d.toLocaleDateString('en-US', options);
         source: (document) => `${document.name}-${document.date}`,
       },
     }),`
+
+---
+
+**Number Format**
+`export const formatSquareFeet = (squareFeet: number) => {
+  return new Intl.NumberFormat('en-US', {
+    maximumSignificantDigits: 3,
+  }).format(squareFeet);
+};`
+
+---

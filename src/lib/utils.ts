@@ -38,3 +38,9 @@ export const formatDate = (date: string) => {
       };
   return d.toLocaleDateString('en-US', options);
 };
+
+export const formatSquareFeet = (squareFeet: number) => {
+  return new Intl.NumberFormat('en-US', {
+    maximumSignificantDigits: 3,
+  }).format(squareFeet);
+};

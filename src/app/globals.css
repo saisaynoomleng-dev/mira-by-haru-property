@@ -1,42 +1,46 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    /* colors */
-    --color-brand-black: #0e131f;
-    --color-brand-gray: #8b939c;
-    --color-brand-red: #ff0035;
-    --color-brand-blue: #38405f;
-    --color-brand-purple: #59546c;
-    --color-brand-white: #f2f0ef;
+  /* colors */
+  --color-brand-black: #0e131f;
+  --color-brand-gray: #8b939c;
+  --color-brand-red: #ff0035;
+  --color-brand-blue: #38405f;
+  --color-brand-purple: #59546c;
+  --color-brand-white: #f2f0ef;
 
-    /* typography */
-    --text-fs-900: 3rem;
-    --text-fs-800: 2.5rem;
-    --text-fs-700: 2rem;
-    --text-fs-600: 1.75rem;
-    --text-fs-500: 1.45rem;
-    --text-fs-400: 1rem;
-    --text-fs-300: 0.833rem;
-    --text-fs-200: 0.694rem;
+  /* typography */
+  --text-fs-900: 3rem;
+  --text-fs-800: 2.5rem;
+  --text-fs-700: 2rem;
+  --text-fs-600: 1.75rem;
+  --text-fs-500: 1.45rem;
+  --text-fs-400: 1rem;
+  --text-fs-300: 0.833rem;
+  --text-fs-200: 0.694rem;
 
-    --font-inconsolata: var(--font-inconsolata);
-    --font-spectral: var(--font-spectral);
+  --font-inconsolata: var(--font-inconsolata);
+  --font-spectral: var(--font-spectral);
 
-    /* breakpoints */
-    --breakpoint-lg: 1000px;
-    --breakpoint-md: 750px;
-    --breakpoint-sm: 560px;
+  /* breakpoints */
+  --breakpoint-lg: 1000px;
+  --breakpoint-md: 750px;
+  --breakpoint-sm: 560px;
 }
 
 @layer base {
-    html {
-        @apply scroll-smooth;
-    }
-    body {
-        @apply text-fs-400 font-spectral bg-brand-white text-brand-black leading-none tracking-normal min-h-screen overflow-x-hidden;
-    }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply text-fs-400 font-spectral bg-brand-white text-brand-black leading-none tracking-normal min-h-screen overflow-x-hidden;
+  }
+}
+
+@utility divider {
+  @apply h-[2px] w-[90%] bg-brand-black/10 mx-auto rounded-lg;
 }
