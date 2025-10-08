@@ -47,7 +47,6 @@ export const blogType = defineType({
       name: 'publishedDate',
       title: 'Published Date',
       type: 'date',
-      initialValue: new Date().toISOString(),
       validation: (rule) => rule.required(),
     }),
     defineField({
