@@ -761,6 +761,20 @@ export type ALL_TEAM_MEMBERS_QUERYResult = Array<{
   } | null;
   socialLink: string | null;
 }>;
+// Variable: ALL_NEIGHBORHOODS_QUERY
+// Query: *[_type == 'neighborhood' && defined(slug.current)]|order(name desc){  name,  slug,  mainImage{    alt,    asset->{url}  },  type,  link}
+export type ALL_NEIGHBORHOODS_QUERYResult = Array<{
+  name: string | null;
+  slug: Slug | null;
+  mainImage: {
+    alt: string | null;
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+  type: 'dining' | 'fitness' | 'park' | 'shopping' | null;
+  link: string | null;
+}>;
 
 // Query TypeMap
 import '@sanity/client';
@@ -769,5 +783,6 @@ declare module '@sanity/client' {
     "*[_type == 'floorPlan' \n && defined(slug.current)]\n  | order(name desc){\n    name,\n    slug,\n    bedroom,\n    bathroom,\n    price,\n    mainImage{\n      alt,\n      asset->{url}\n    },\n    desc,\n    features,\n    squareFeet,\n    subTitle\n  }": ALL_FLOOR_PLANS_QUERYResult;
     "*[_type == 'blog'\n && defined(slug.current)]\n| order(publishedDate desc){\n  name,\n  subtitle,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  subTitle,\n  category,\n  slug,\n  publishedDate\n}": ALL_BLOGS_QUERYResult;
     "*[_type == 'teamMember'\n && defined(slug.current)]\n| order(name desc){\n  name,\n  position,\n  slug,\n  bio,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  socialLink\n}": ALL_TEAM_MEMBERS_QUERYResult;
+    "*[_type == 'neighborhood'\n && defined(slug.current)]\n|order(name desc){\n  name,\n  slug,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  type,\n  link\n}": ALL_NEIGHBORHOODS_QUERYResult;
   }
 }

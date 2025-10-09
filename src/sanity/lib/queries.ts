@@ -46,3 +46,16 @@ export const ALL_TEAM_MEMBERS_QUERY = defineQuery(`*[_type == 'teamMember'
   },
   socialLink
 }`);
+
+export const ALL_NEIGHBORHOODS_QUERY = defineQuery(`*[_type == 'neighborhood'
+ && defined(slug.current)]
+|order(name desc){
+  name,
+  slug,
+  mainImage{
+    alt,
+    asset->{url}
+  },
+  type,
+  link
+}`);

@@ -30,6 +30,18 @@
   --breakpoint-lg: 1000px;
   --breakpoint-md: 750px;
   --breakpoint-sm: 560px;
+
+  /* animations */
+  --animate-marquee: marquee 20s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
 }
 
 @layer base {
