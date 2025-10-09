@@ -22,7 +22,7 @@ const FloorPlanCard = (
   return (
     <Link
       href={`/floor-plans/${slug?.current}`}
-      className="flex flex-col gap-y-3 p-2 bg-brand-purple/20 rounded-md"
+      className="flex flex-col gap-y-3 p-2 bg-brand-purple/20 rounded-md hover:scale-[1.01] transition-transform duration-150 ease-in-out"
     >
       <div>
         {mainImage?.asset?.url ? (
@@ -43,9 +43,9 @@ const FloorPlanCard = (
 
       <div className="flex flex-col gap-y-2">
         <p className="font-medium">{name}</p>
-        <div className="flex gap-x-3">
-          <p>{bedroom} Bedroom(s)</p>
-          <p>{bathroom} Bathroom(s)</p>
+        <div className="flex gap-x-3 md:flex-col lg:flex-row gap-y-1">
+          <p>{bedroom} Bed</p>
+          <p>{bathroom} Bath</p>
           {squareFeet && <p>{formatSquareFeet(squareFeet)} SqFt</p>}
         </div>
 

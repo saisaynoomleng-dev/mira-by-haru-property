@@ -10,7 +10,7 @@ const BlogCard = (props: NonNullable<ALL_BLOGS_QUERYResult>[number]) => {
   return (
     <Link
       href={`/blog/${slug?.current}`}
-      className="flex flex-col gap-y-20 bg-brand-purple/20 p-2 rounded-sm"
+      className="flex flex-col gap-y-4 border border-brand-black/10 p-2 rounded-sm hover:scale-[1.01] transition-transform duration-150 ease-in-out"
     >
       <div>
         {mainImage?.asset?.url && (
@@ -24,7 +24,7 @@ const BlogCard = (props: NonNullable<ALL_BLOGS_QUERYResult>[number]) => {
             height={500}
             alt={mainImage.alt || ''}
             priority
-            className="w-full object-cover"
+            className="w-full rounded-sm object-cover"
           />
         )}
       </div>
