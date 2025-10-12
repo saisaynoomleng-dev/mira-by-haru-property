@@ -10,7 +10,7 @@ const TeamMemberCard = (
 ) => {
   const { name, position, mainImage, bio, socialLink } = props;
   return (
-    <div className="flex flex-col gap-y-3 p-2 bg-brand-purple/20 rounded-sm">
+    <div className="flex flex-col gap-y-3 p-2 bg-brand-purple/5 rounded-sm">
       <div>
         {mainImage?.asset?.url ? (
           <Image
