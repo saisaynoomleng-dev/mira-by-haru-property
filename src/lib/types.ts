@@ -22,7 +22,7 @@ export type TitleProps = {
 
 //
 export type PrevFormStateProps = {
-  state: string;
+  state: 'success' | 'error';
   message: string;
   field?: string;
 };

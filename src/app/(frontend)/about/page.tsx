@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AboutPage = () => {
-  return <div></div>;
+  return <div>Abiyt package</div>;
 };
 
 export default AboutPage;

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Form from 'next/form';
 import FooterSubscription from './FooterSubscription';
 import {
   FaCcAmazonPay,
