@@ -359,7 +359,7 @@ export default async function Home() {
       </div>
 
       <div className="flex flex-col gap-y-5">
-        <Title as="h2" size="md" className="capitalize text-center">
+        <Title as="h2" size="md" className="capitalize ">
           updates, tips & living well
         </Title>
 

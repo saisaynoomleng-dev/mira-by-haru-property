@@ -6,7 +6,7 @@ import { PrevFormStateProps } from './types';
 export const handleSubscription = async (
   prevState: PrevFormStateProps,
   formData: FormData,
-): Promise<{ state: string; message: string }> => {
+): Promise<{ state: 'success' | 'error'; message: string }> => {
   const email = formData.get('email')?.toString().trim() || '';
   const reg_email = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
 
