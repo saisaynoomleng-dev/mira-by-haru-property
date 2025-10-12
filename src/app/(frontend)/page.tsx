@@ -264,10 +264,10 @@ export default async function Home() {
         </div>
       </div>
       <div className="flex flex-col gap-y-5">
-        <Title as="h2" size="md" className="capitalize text-center">
+        <Title as="h2" size="md" className="capitalize">
           Where Comfort meets Characters
         </Title>
-        <p className="text-center">
+        <p>
           At The Mira&reg;, we design with intention—spaces that feel as good as
           they function. From ceiling height to natural light, every feature is
           chosen to enhance daily life, not distract from it.
@@ -277,7 +277,7 @@ export default async function Home() {
           {UNIT_FEATURES.map((feature) => (
             <div
               key={feature.title}
-              className="flex flex-col gap-y-3 justify-center items-center bg-brand-blue/20 rounded-sm p-4"
+              className="flex flex-col gap-y-3 justify-center items-center bg-brand-blue/5 rounded-sm p-4"
             >
               <div>
                 <Image
@@ -313,11 +313,11 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-y-5">
-        <Title as="h2" size="md" className="capitalize text-center">
+      <div className="flex flex-col gap-y-5 p-5">
+        <Title as="h2" size="md" className="capitalize">
           live connected in every way
         </Title>
-        <p className="text-center">
+        <p>
           Centrally located yet quietly tucked away, The Mira&reg; gives you
           immediate access to daily essentials, dining, green space, and
           cultural spots.
@@ -327,7 +327,7 @@ export default async function Home() {
           {allNeighborHoods.map((neighborhood) => (
             <div
               key={neighborhood.slug?.current}
-              className="flex gap-y-3 flex-col p-2 rounded-sm bg-brand-black/10 text-center"
+              className="flex gap-y-3 flex-col p-2 rounded-sm bg-brand-blue/5 text-center"
             >
               <div>
                 {neighborhood?.mainImage?.asset?.url ? (

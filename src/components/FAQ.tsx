@@ -1,4 +1,3 @@
-import React from 'react';
 import Title from './Title';
 import {
   Accordion,
@@ -22,7 +21,7 @@ const FAQ = () => {
     {
       question: 'Are pets allowed?',
       answer:
-        'Absolutely. We&apos;re pet-friendly—with certain breed and weight restrictions. Pet deposits apply.',
+        "Absolutely. We're pet-friendly—with certain breed and weight restrictions. Pet deposits apply.",
     },
     {
       question: 'What utilities are included?',

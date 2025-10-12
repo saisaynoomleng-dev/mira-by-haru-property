@@ -19,3 +19,10 @@ export type TitleProps = {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
 };
+
+//
+export type PrevFormStateProps = {
+  state: string;
+  message: string;
+  field?: string;
+};

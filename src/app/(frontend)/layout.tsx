@@ -1,16 +1,19 @@
-import { SanityLive } from "@/sanity/lib/live";
+import Footer from '@/components/Footer';
+import { SanityLive } from '@/sanity/lib/live';
 
 const FrontendLayout = ({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) => {
-    return (
-        <main>
-            {children}
-            <SanityLive />
-        </main>
-    );
+  return (
+    <main>
+      {children}
+      <Footer />
+
+      <SanityLive />
+    </main>
+  );
 };
 
 export default FrontendLayout;
