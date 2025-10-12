@@ -22,7 +22,7 @@ const FloorPlanCard = (
   return (
     <Link
       href={`/floor-plans/${slug?.current}`}
-      className="flex flex-col gap-y-3 p-2 bg-brand-purple/20 rounded-md hover:scale-[1.01] transition-transform duration-150 ease-in-out"
+      className="flex flex-col gap-y-3 p-2 bg-brand-purple/5 rounded-md hover:scale-[1.01] transition-transform duration-150 ease-in-out"
     >
       <div>
         {mainImage?.asset?.url ? (

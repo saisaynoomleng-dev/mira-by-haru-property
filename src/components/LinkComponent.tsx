@@ -7,7 +7,7 @@ const LinkComponent = ({ url, imgURL, text }: LinkComponentProps) => {
   return (
     <Link
       href={url}
-      className="p-5 rounded-sm bg-brand-blue/20 grid grid-cols-[auto_1fr_auto] place-items-center group hover:scale-[1.001] transition-transform duration-150 ease-in-out gap-x-2"
+      className="p-5 rounded-sm bg-brand-blue/5 grid grid-cols-[auto_1fr_auto] place-items-center group hover:scale-[1.001] transition-transform duration-150 ease-in-out gap-x-2"
     >
       <div>
         <Image src={imgURL} width={100} height={100} alt="" priority />
