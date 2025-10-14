@@ -679,11 +679,12 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: ALL_FLOOR_PLANS_QUERY
-// Query: *[_type == 'floorPlan'  && defined(slug.current)]  | order(name desc){    name,    slug,    bedroom,    bathroom,    price,    mainImage{      alt,      asset->{url}    },    desc,    features,    squareFeet,    subTitle  }
+// Query: *[_type == 'floorPlan'  && defined(slug.current)]  | order(name desc){    name,    slug,    bedroom,    type,    bathroom,    price,    mainImage{      alt,      asset->{url}    },    desc,    features,    squareFeet,    subTitle  }
 export type ALL_FLOOR_PLANS_QUERYResult = Array<{
   name: string | null;
   slug: Slug | null;
   bedroom: number | null;
+  type: 'one-bed' | 'studio' | 'two-bed' | null;
   bathroom: number | null;
   price: number | null;
   mainImage: {
@@ -775,14 +776,122 @@ export type ALL_NEIGHBORHOODS_QUERYResult = Array<{
   type: 'dining' | 'fitness' | 'park' | 'shopping' | null;
   link: string | null;
 }>;
+// Variable: FLOOR_PLANS_QUERY
+// Query: *[_type == 'floorPlan'  && defined(slug.current) && (  (!defined($filter))||  $filter match type ) ]  | order(name desc){    name,    slug,    bedroom,    type,    bathroom,    price,    mainImage{      alt,      asset->{url}    },    desc,    features,    squareFeet,    subTitle  }
+export type FLOOR_PLANS_QUERYResult = Array<{
+  name: string | null;
+  slug: Slug | null;
+  bedroom: number | null;
+  type: 'one-bed' | 'studio' | 'two-bed' | null;
+  bathroom: number | null;
+  price: number | null;
+  mainImage: {
+    alt: string | null;
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+  desc: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: 'span';
+          _key: string;
+        }>;
+        style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'normal';
+        listItem?: 'bullet';
+        markDefs?: Array<{
+          href?: string;
+          _type: 'link';
+          _key: string;
+        }>;
+        level?: number;
+        _type: 'block';
+        _key: string;
+      }
+    | {
+        asset?: {
+          _ref: string;
+          _type: 'reference';
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: 'image';
+        _key: string;
+      }
+  > | null;
+  features: Array<string> | null;
+  squareFeet: number | null;
+  subTitle: string | null;
+}>;
+// Variable: FLOOR_PLAN_QUERY
+// Query: *[_type == 'floorPlan'  && slug.current == $slug]  [0]{    name,    slug,    bedroom,    type,    bathroom,    price,    mainImage{      alt,      asset->{url}    },    desc,    features,    squareFeet,    subTitle  }
+export type FLOOR_PLAN_QUERYResult = {
+  name: string | null;
+  slug: Slug | null;
+  bedroom: number | null;
+  type: 'one-bed' | 'studio' | 'two-bed' | null;
+  bathroom: number | null;
+  price: number | null;
+  mainImage: {
+    alt: string | null;
+    asset: {
+      url: string | null;
+    } | null;
+  } | null;
+  desc: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: 'span';
+          _key: string;
+        }>;
+        style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'normal';
+        listItem?: 'bullet';
+        markDefs?: Array<{
+          href?: string;
+          _type: 'link';
+          _key: string;
+        }>;
+        level?: number;
+        _type: 'block';
+        _key: string;
+      }
+    | {
+        asset?: {
+          _ref: string;
+          _type: 'reference';
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: 'image';
+        _key: string;
+      }
+  > | null;
+  features: Array<string> | null;
+  squareFeet: number | null;
+  subTitle: string | null;
+} | null;
 
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    "*[_type == 'floorPlan' \n && defined(slug.current)]\n  | order(name desc){\n    name,\n    slug,\n    bedroom,\n    bathroom,\n    price,\n    mainImage{\n      alt,\n      asset->{url}\n    },\n    desc,\n    features,\n    squareFeet,\n    subTitle\n  }": ALL_FLOOR_PLANS_QUERYResult;
+    "*[_type == 'floorPlan' \n && defined(slug.current)]\n  | order(name desc){\n    name,\n    slug,\n    bedroom,\n    type,\n    bathroom,\n    price,\n    mainImage{\n      alt,\n      asset->{url}\n    },\n    desc,\n    features,\n    squareFeet,\n    subTitle\n  }": ALL_FLOOR_PLANS_QUERYResult;
     "*[_type == 'blog'\n && defined(slug.current)]\n| order(publishedDate desc){\n  name,\n  subtitle,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  subTitle,\n  category,\n  slug,\n  publishedDate\n}": ALL_BLOGS_QUERYResult;
     "*[_type == 'teamMember'\n && defined(slug.current)]\n| order(name desc){\n  name,\n  position,\n  slug,\n  bio,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  socialLink\n}": ALL_TEAM_MEMBERS_QUERYResult;
     "*[_type == 'neighborhood'\n && defined(slug.current)]\n|order(name desc){\n  name,\n  slug,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  type,\n  link\n}": ALL_NEIGHBORHOODS_QUERYResult;
+    "*[_type == 'floorPlan' \n && defined(slug.current)\n && (\n  (!defined($filter))||\n  $filter match type\n )\n ]\n  | order(name desc){\n    name,\n    slug,\n    bedroom,\n    type,\n    bathroom,\n    price,\n    mainImage{\n      alt,\n      asset->{url}\n    },\n    desc,\n    features,\n    squareFeet,\n    subTitle\n  }": FLOOR_PLANS_QUERYResult;
+    "*[_type == 'floorPlan' \n && slug.current == $slug]\n  [0]{\n    name,\n    slug,\n    bedroom,\n    type,\n    bathroom,\n    price,\n    mainImage{\n      alt,\n      asset->{url}\n    },\n    desc,\n    features,\n    squareFeet,\n    subTitle\n  }": FLOOR_PLAN_QUERYResult;
   }
 }

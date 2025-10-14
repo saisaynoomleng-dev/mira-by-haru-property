@@ -6,6 +6,7 @@ export const ALL_FLOOR_PLANS_QUERY = defineQuery(`*[_type == 'floorPlan'
     name,
     slug,
     bedroom,
+    type,
     bathroom,
     price,
     mainImage{
@@ -59,3 +60,46 @@ export const ALL_NEIGHBORHOODS_QUERY = defineQuery(`*[_type == 'neighborhood'
   type,
   link
 }`);
+
+export const FLOOR_PLANS_QUERY = defineQuery(`*[_type == 'floorPlan' 
+ && defined(slug.current)
+ && (
+  (!defined($filter))||
+  $filter match type
+ )
+ ]
+  | order(name desc){
+    name,
+    slug,
+    bedroom,
+    type,
+    bathroom,
+    price,
+    mainImage{
+      alt,
+      asset->{url}
+    },
+    desc,
+    features,
+    squareFeet,
+    subTitle
+  }`);
+
+export const FLOOR_PLAN_QUERY = defineQuery(`*[_type == 'floorPlan' 
+ && slug.current == $slug]
+  [0]{
+    name,
+    slug,
+    bedroom,
+    type,
+    bathroom,
+    price,
+    mainImage{
+      alt,
+      asset->{url}
+    },
+    desc,
+    features,
+    squareFeet,
+    subTitle
+  }`);
